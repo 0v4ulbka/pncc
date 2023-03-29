@@ -1,0 +1,16 @@
+{
+    "name": "0v4ulbka/pop-it-mvc",
+    "description": "Simple mvc framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dima",
+            "email": "dimahudobin05@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.1"
+    }
+}
