@@ -1,17 +1,17 @@
 {
     "name": "0v4ulbka/pop-it-mvc",
-    "description": "Simple mvc framework",
+    "description": "framework on php",
     "type": "project",
     "license": "MIT",
     "authors": [
         {
-            "name": "Dima",
+            "name": "Dmitriy",
             "email": "dimahudobin05@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^7.4 | ^8.1"
+        "php": "^7.4 | ^8.2"
     },
     "autoload": {
         "psr-4": {
