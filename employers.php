@@ -75,7 +75,6 @@ if($_POST){
             ?>
         </div>
     </div>
-    <div class="employers2">
         <table class="title">
             <tr>
                 <th>ФИО работника</th>
@@ -111,10 +110,6 @@ if($_POST){
                 <td><a class="buttonDEL" href=""><h2>&mdash;</h2></a></td>
             </tr>
         </table>
-        <div class="content">
-
-        </div>
-    </div>
 </div>
 </body>
 </html>
