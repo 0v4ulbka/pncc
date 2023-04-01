@@ -90,7 +90,7 @@ if($_POST){
                 ?>
                 <th>Должность</th>
                 <th>Подразделение</th>
-                <td colspan="2"><a class="buttonADD" href=""><h2 class="buttonADD">+</h2></a></td>
+                <td colspan="2"><a class="buttonADD" href="formADD.php"><h2 class="buttonADD">+</h2></a></td>
             </tr>
             <tr>
                 <td>ФИО работника</td>
@@ -106,7 +106,7 @@ if($_POST){
                 ?>
                 <td>Должность</td>
                 <td>Подразделение</td>
-                <td class="buttonADD"><a class="buttonUPD" href=""><h2>&#9998;</h2></a></td>
+                <td class="buttonADD"><a class="buttonUPD" href="formUPD.php"><h2>&#9998;</h2></a></td>
                 <td><a class="buttonDEL" href=""><h2>&mdash;</h2></a></td>
             </tr>
         </table>
