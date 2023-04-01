@@ -11,20 +11,22 @@
 <body>
 <?php
 $a = 'Admin';
-
+if($_POST){
+    header('Location: '.'login.php');
+}
 ?>
 <header>
     <nav>
         <?php
         if ($a === 'User'){
             ?>
-            <a href="">Работники</a>
+            <a class="navMain" href="">Работники</a>
             <?php
         }else{
             ?>
-            <a href="">Работники</a>
-            <a href="">Подразделения и должности</a>
-            <a href="">Пользователи</a>
+            <a class="navMain" href="">Работники</a>
+            <a class="navMain" href="">Подразделения и должности</a>
+            <a class="navMain" href="">Пользователи</a>
             <?php
         }
         ?>
@@ -33,22 +35,22 @@ $a = 'Admin';
         <?php
         if ($a === 'User'){
             ?>
-            <p><?= $a?></p>
+            <a class="navMain" href="main.php"><?= $a?></a>
             <?php
         }else{
             ?>
-            <p><?= $a?></p>
+            <a class="navMain" href="main.php"><?= $a?></a>
             <?php
         }
         ?>
         <form method="post">
-            <input type="submit" value="Выйти" name="logout">
+            <input class="button" type="submit" value="Выйти" name="logout">
         </form>
     </div>
 </header>
 <div>
     <h1>Здравствуйте, <?= $a?></h1>
-    <div>
+    <div class="opportunities">
         <h2>Что вы можете?</h2>
         <ul>
             <li>Вы можете добавить нового работника в базу</li>
@@ -69,7 +71,7 @@ $a = 'Admin';
         <?php
         if($a != 'User'){
             ?>
-            <input type="submit" name="add" value="Добавить нового пользователя">
+            <input class="button" type="submit" name="add" value="Добавить нового пользователя">
             <?php
         }
         ?>

@@ -26,7 +26,7 @@ form{
     align-items: center;
     margin-top: 75px;
     padding: 70px;
-    background-color: #b0d9eb;
+    background-color: #b4bfe7;
     border-radius: 35px;
 }
 
@@ -37,7 +37,7 @@ form{
     padding: 15px;
     border: none;
     border-radius: 11px;
-    background-color: #cae1eb;
+    background-color: #d1d5ee;
 
 }
 
@@ -49,8 +49,9 @@ form{
     border: none;
     border-radius: 11px;
     cursor: pointer;
-    background-color: #7ac9eb;
+    background-color: #112876;
+    color: #cae1eb;
 }
 .button:hover{
-    background-color: #5abee8;
+    background-color: #06133f;
 }
