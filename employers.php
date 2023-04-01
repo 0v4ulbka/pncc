@@ -25,8 +25,8 @@ if($_POST){
         }else{
             ?>
             <a class="navMain" href="employers.php">Работники</a>
-            <a class="navMain" href="">Подразделения и должности</a>
-            <a class="navMain" href="">Пользователи</a>
+            <a class="navMain" href="subdivisions_and_job_title.php">Подразделения и должности</a>
+            <a class="navMain" href="users.php">Пользователи</a>
             <?php
         }
         ?>
