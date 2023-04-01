@@ -20,11 +20,11 @@ if($_POST){
         <?php
         if ($a === 'User'){
             ?>
-            <a class="navMain" href="">Работники</a>
+            <a class="navMain" href="employers.php">Работники</a>
             <?php
         }else{
             ?>
-            <a class="navMain" href="">Работники</a>
+            <a class="navMain" href="employers.php">Работники</a>
             <a class="navMain" href="">Подразделения и должности</a>
             <a class="navMain" href="">Пользователи</a>
             <?php

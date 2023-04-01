@@ -1,0 +1,93 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+    height: 80px;
+    background-color: #b4bfe7;
+}
+header > div{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: space-between;
+}
+.navMain{
+    text-decoration: none;
+    color: #112876;
+    font-size: 12pt;
+    margin-right: 60px;
+
+}
+.username{
+    font-size: 14pt;
+}
+.button{
+    padding: 12px 30px;
+    font-size: 14px;
+    border-radius: 11px;
+    border: none;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #112876;
+    color: #cae1eb;
+    cursor: pointer;
+
+}
+.button:hover{
+    background-color: #06133f;
+}
+.search{
+    display: flex;
+    flex-direction: column;
+}
+.employers1{
+    display:flex;
+    justify-content: space-between;
+    margin: 80px 200px
+}
+h1{
+    margin: 0;
+}
+
+span{
+    margin-bottom: 40px;
+    font-size: 13pt;
+}
+select{
+    border: none;
+    background-color: #112876;
+    color: #cae1eb;
+    padding: 12px 15px;
+    border-radius: 11px;
+    margin-left: 30px;
+}
+.employers2{
+    background-color: #b4bfe7;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.buttonADD{
+     margin: 0;
+     color: #a10303;
+     text-decoration: none;
+}
+.buttonUPD{
+    margin: 0;
+    color: #06133f;
+    text-decoration: none;
+}
+.buttonDEL{
+    margin: 0;
+    color: #358113;
+    text-decoration: none;
+}
+td, th{
+    text-align: center;
+    border: #06133f solid 3px;
+}
