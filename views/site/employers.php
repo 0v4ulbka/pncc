@@ -45,7 +45,7 @@ use Model\Employees;
                 ?>
                 <th>Должность</th>
                 <th>Подразделение</th>
-                <td colspan="2"><a class="buttonADD" href="../../formADD.php"><h2 class="buttonADD">+</h2></a></td>
+                <td colspan="2"><a class="buttonADD" href="<?= app()->route->getUrl('/addEmployer') ?>"><h2 class="buttonADD">+</h2></a></td>
             </tr>
             <?php foreach ($employers as $employer){ ?>
             <tr>

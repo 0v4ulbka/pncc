@@ -12,4 +12,11 @@ class Employers
         $employers = Employees::all();
         return (new View()) -> render('site.employers', ['employers'=>$employers]);
     }
+    public function addEmployer(Request $request): string
+    {
+        if ($request->method === 'POST' && Employees::create($request->all())) {
+            app()->route->redirect('/employers');
+        }
+        return new View('site.addEmployer');
+    }
 }

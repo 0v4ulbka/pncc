@@ -10,7 +10,7 @@ class Employees extends Model
     use HasFactory;
 
     public $timestamps = false;
-    /*protected $fillable = [
+    protected $fillable = [
         'surname',
         'name',
         'patronymic',
@@ -19,5 +19,5 @@ class Employees extends Model
         'address',
         'job_title',
         'subdivision',
-    ];*/
+    ];
 }
