@@ -7,7 +7,7 @@ use Model\Employees;
 <h3><?= $message ?? ''; ?></h3>
 <div>
     <div class="employers1">
-        <h1>Работники предприятия</h1>
+        <h1 id="uniqH1">Работники предприятия</h1>
         <?php if ((new User)->is_admin()){ ?>
         <div class="search">
             <span>Список сотрудников по должности
@@ -65,7 +65,7 @@ use Model\Employees;
                 <?php if ((new User)->is_admin()){ ?>
                 <td class="buttonADD"><a class="buttonUPD" href="../../formUPD.php"><h2>&#9998;</h2></a></td>
                 <?php }?>
-                <td><a class="buttonDEL" href=""><h2>&mdash;</h2></a></td>
+                <td><a class="buttonDEL" href=""><h2 class="buttonDEL">&mdash;</h2></a></td>
             </tr>
             <?php }?>
         </table>

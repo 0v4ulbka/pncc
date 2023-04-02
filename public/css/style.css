@@ -3,12 +3,14 @@ body{
     margin: 0;
 }
 header{
+    border-bottom: #06133f solid 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 150px;
     height: 80px;
     background-color: #b4bfe7;
+
 }
 .logout{
     display: flex;
@@ -49,6 +51,9 @@ h1{
     margin-top: 60px;
     margin-bottom: 60px;
     margin-left: 150px;
+}
+#uniqH1{
+    margin: 0;
 }
 .button:hover{
      background-color: #06133f;
@@ -105,7 +110,7 @@ li::marker{
 .employers1{
     display:flex;
     justify-content: space-between;
-    margin: 80px 200px
+    margin: 60px 150px
 }
 span{
     margin-bottom: 40px;
