@@ -1,3 +1,8 @@
+<?php
+
+use Model\User;
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,26 +14,23 @@
     <title>Pop it MVC</title>
 </head>
 <body>
+<?php
+if (app()->auth::check()):
+?>
 <header>
     <nav>
+
+
         <a class="navMain" href="<?= app()->route->getUrl('/hello') ?>">Работники</a>
+        <?php if ((new User)->is_admin()){ ?>
         <a class="navMain" href="<?= app()->route->getUrl('/hello') ?>">Подраделения и должности</a>
         <a class="navMain" href="<?= app()->route->getUrl('/hello') ?>">Пользователи</a>
+        <?php } ?>
     </nav>
-        <?php
-        if (!app()->auth::check()):
-            ?>
-        <nav>
-            <a class="button" href="<?= app()->route->getUrl('/login') ?>">Войти</a>
-
-        </nav>
-        <?php
-        else:
-            ?>
-            <div class="logout">
-                <a class="navMain" href="<?= app()->route->getUrl('/hello') ?>"><?= app()->auth::user()->name ?></a>
-                <a class="button" href="<?= app()->route->getUrl('/logout') ?>">Выход</a>
-            </div>
+        <div class="logout">
+            <a class="navMain" href="<?= app()->route->getUrl('/hello') ?>"><?= app()->auth::user()->name ?></a>
+            <a class="button" href="<?= app()->route->getUrl('/logout') ?>">Выход</a>
+        </div>
         <?php
         endif;
         ?>

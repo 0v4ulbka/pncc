@@ -46,4 +46,9 @@ class User extends Model implements IdentityInterface
         return self::where(['email' => $credentials['email'],
             'password' => md5($credentials['password'])])->first();
     }
+    public function is_admin(): bool
+    {
+        if (app()->auth::user()->job_title === 'admin'){return true;}
+        else{return false;}
+    }
 }
