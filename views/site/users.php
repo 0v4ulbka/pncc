@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="SUsers.css">
+    <link rel="stylesheet" type="text/css" href="../../SUsers.css">
     <title>login</title>
 </head>
 <body>
@@ -25,7 +25,7 @@ if($_POST){
         }else{
             ?>
             <a class="navMain" href="employers.php">Работники</a>
-            <a class="navMain" href="subdivisions_and_job_title.php">Подразделения и должности</a>
+            <a class="navMain" href="../../subdivisions_and_job_title.php">Подразделения и должности</a>
             <a class="navMain" href="users.php">Пользователи</a>
             <?php
         }
@@ -35,11 +35,11 @@ if($_POST){
         <?php
         if ($a === 'User'){
             ?>
-            <a class="navMain" href="views/site/possibilities.php"><?= $a?></a>
+            <a class="navMain" href="possibilities.php"><?= $a?></a>
             <?php
         }else{
             ?>
-            <a class="navMain" href="views/site/possibilities.php"><?= $a?></a>
+            <a class="navMain" href="possibilities.php"><?= $a?></a>
             <?php
         }
         ?>
@@ -63,7 +63,7 @@ if($_POST){
                 <td>Номер телефона</td>
                 <td>Email</td>
                 <td>Пароль</td>
-                <td class="buttonADD"><a class="buttonUPD" href="updUser.php"><h2>&#9998;</h2></a></td>
+                <td class="buttonADD"><a class="buttonUPD" href="../../updUser.php"><h2>&#9998;</h2></a></td>
                 <td><a class="buttonDEL" href=""><h2>&mdash;</h2></a></td>
             </tr>
         </table>

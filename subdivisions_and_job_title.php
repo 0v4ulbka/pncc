@@ -20,13 +20,13 @@ if(!empty($_POST['logout'])){
         <?php
         if ($a === 'User'){
             ?>
-            <a class="navMain" href="employers.php">Работники</a>
+            <a class="navMain" href="views/site/employers.php">Работники</a>
             <?php
         }else{
             ?>
-            <a class="navMain" href="employers.php">Работники</a>
+            <a class="navMain" href="views/site/employers.php">Работники</a>
             <a class="navMain" href="subdivisions_and_job_title.php">Подразделения и должности</a>
-            <a class="navMain" href="users.php">Пользователи</a>
+            <a class="navMain" href="views/site/users.php">Пользователи</a>
             <?php
         }
         ?>

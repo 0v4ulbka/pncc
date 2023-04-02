@@ -7,3 +7,4 @@ Route::add(['GET', 'POST'], '/signup', [Controller\Site::class, 'signup'])
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
+Route::add(['GET', 'POST'], '/employers', [Controller\Employers::class, 'employers']);
