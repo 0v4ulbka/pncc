@@ -35,11 +35,11 @@ if(!empty($_POST['logout'])){
         <?php
         if ($a === 'User'){
             ?>
-            <a class="navMain" href="main.php"><?= $a?></a>
+            <a class="navMain" href="views/site/possibilities.php"><?= $a?></a>
             <?php
         }else{
             ?>
-            <a class="navMain" href="main.php"><?= $a?></a>
+            <a class="navMain" href="views/site/possibilities.php"><?= $a?></a>
             <?php
         }
         ?>

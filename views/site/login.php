@@ -5,9 +5,18 @@
 <?php
 if (!app()->auth::check()):
     ?>
-    <form method="post">
-        <label>Логин <input type="text" name="login"></label>
-        <label>Пароль <input type="password" name="password"></label>
-        <button>Войти</button>
-    </form>
+    <div class="formLog">
+        <p class="formText">Вы посещаете страницу как гость, вам нейобходимо зайти в свою учетную запись</p>
+        <form method="post">
+            <p>Ваш email</p>
+            <label>
+                <input class="field" type="text" name="email">
+            </label>
+            <p>Ваш пароль</p>
+            <label>
+                <input class="field" type="password" name="password">
+            </label>
+            <button>Войти</button>
+        </form>
+    </div>
 <?php endif;

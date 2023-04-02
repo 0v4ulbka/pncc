@@ -11,7 +11,7 @@
 <body>
 <?php
 if (!empty($_POST)){
-    header('Location: '.'main.php');
+    header('Location: '.'possibilities.php');
 }
 ?>
 <div class="formLog">

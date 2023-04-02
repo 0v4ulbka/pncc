@@ -17,7 +17,7 @@ class Site
 
     public function hello(): string
     {
-        return new View('site.hello', ['message' => 'hello working']);
+        return new View('site.possibilities');
     }
 
     public function signup(Request $request): string
