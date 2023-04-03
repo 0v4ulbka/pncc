@@ -1,0 +1,18 @@
+select{
+    border: none;
+    background-color: #112876;
+    color: #cae1eb;
+    padding: 12px 15px;
+    border-radius: 11px;
+    margin-left: 30px;
+}
+.button{
+    padding: 12px 30px;
+    font-size: 14px;
+    border-radius: 11px;
+    border: none;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #112876;
+    color: #cae1eb;
+    cursor: pointer;
+}
