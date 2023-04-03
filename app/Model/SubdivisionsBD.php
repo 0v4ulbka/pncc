@@ -11,7 +11,7 @@ class SubdivisionsBD extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'type',
         'subdivision',
+        'type',
     ];
 }

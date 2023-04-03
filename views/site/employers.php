@@ -47,7 +47,7 @@ use Model\Employees;
                 <th>Подразделение</th>
                 <th colspan="2"><a class="buttonADD" href="<?= app()->route->getUrl('/addEmployer') ?>">Добавить</a></th>
             </tr>
-            <?php foreach ($employers as $employer){ ?>
+            <?php foreach ($employers as $key=>$employer){ ?>
             <tr>
                 <td><?= $employer->surname ?> <?= $employer->name ?> <?= $employer->patronymic ?></td>
                 <td><?= $employer->gender?></td>
@@ -60,10 +60,10 @@ use Model\Employees;
                     <?php
                 }
                 ?>
-                <td><?= $employer->job_title ?></td>
-                <td><?= $employer->subdivision ?></td>
+                <td><?= $job_titles[$key]->job_title ?></td>
+                <td><?= $subdivisions[$key]->subdivision ?></td>
                 <?php if ((new User)->is_admin()){ ?>
-                <td class="buttonADD"><a class="buttonUPD" href="../../formUPD.php"><h2>&#9998;</h2></a></td>
+                <td class="buttonADD"><a class="buttonUPD" href=""><h2>&#9998;</h2></a></td>
                 <?php }?>
                 <td><a class="buttonDEL" href=""><h2 class="buttonDEL">&mdash;</h2></a></td>
             </tr>

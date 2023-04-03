@@ -19,7 +19,6 @@ class Site
             app()->route->redirect('/hello');
         }
         return new View('site.signup');
-
     }
 
     public function login(Request $request): string

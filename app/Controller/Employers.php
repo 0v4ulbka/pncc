@@ -11,8 +11,17 @@ class Employers
 {
     public function employers(): string
     {
+        $job_titles = [];
+        $subdivisions = [];
         $employers = Employees::all();
-        return (new View()) -> render('site.employers', ['employers'=>$employers]);
+        foreach ($employers as $employer){
+            $job_titles[] = Job_titleBD::where('id', $employer->job_title)->first();
+            $subdivisions[] = SubdivisionsBD::where('id', $employer->subdivision)->first();
+        }
+        return (new View()) -> render('site.employers', [
+            'employers'=>$employers,
+            'job_titles'=>$job_titles,
+            'subdivisions'=>$subdivisions]);
     }
     public function addEmployer(Request $request): string
     {

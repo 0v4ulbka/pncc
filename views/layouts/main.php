@@ -21,8 +21,9 @@ if (app()->auth::check()):
     <nav>
         <a class="navMain" href="<?= app()->route->getUrl('/employers') ?>">Работники</a>
         <?php if ((new User)->is_admin()){ ?>
-        <a class="navMain" href="<?= app()->route->getUrl('/hello') ?>">Подраделения и должности</a>
-        <a class="navMain" href="<?= app()->route->getUrl('/users') ?>">Пользователи</a>
+            <a class="navMain" href="<?= app()->route->getUrl('/subdivisions') ?>">Подраделения</a>
+            <a class="navMain" href="<?= app()->route->getUrl('/job_titles') ?>">Должности</a>
+            <a class="navMain" href="<?= app()->route->getUrl('/users') ?>">Пользователи</a>
         <?php } ?>
     </nav>
         <div class="logout">
