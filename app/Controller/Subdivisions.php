@@ -22,7 +22,12 @@ class Subdivisions
     public function addsub(Request $request): string
     {
         $type_subdivisions = Type_subdivisionsBD::all();
-        if ($request->method === 'POST' && SubdivisionsBD::create($request->all())) {
+        //var_dump($request->all());die();
+        if ($request->method === 'POST' ) {
+            $subdivisions = new SubdivisionsBD();
+            $subdivisions->subdivision = $request->subdivision;
+            $subdivisions->type_subdivision = (int)$request->type_subdivision;
+            $subdivisions->save();
             app()->route->redirect('/subdivisions');
         }
         return new View('site.addsub', ['type_subdivisions'=>$type_subdivisions]);

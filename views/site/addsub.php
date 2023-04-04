@@ -7,11 +7,9 @@
         </label>
         <p>Выберите тип подразделения</p>
         <label>
-            <select>
-                <?php foreach ($type_subdivisions as $type_subdivision){?>
-                <option value="<?= $type_subdivision->id?>"><?= $type_subdivision->type_subdivision?></option>
-                <?php }?>
-            </select>
+            <?php foreach ($type_subdivisions as $type_subdivision){?>
+                <input type="radio" value="<?= $type_subdivision->id?>" name="type_subdivision"><?= $type_subdivision->type_subdivision?><br><br>
+            <?php }?>
         </label>
         <button>Добавить</button>
         <a class="button" href="<?= app()->route->getUrl('/subdivisions')?>">Отмена</a>
