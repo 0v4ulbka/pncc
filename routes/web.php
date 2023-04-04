@@ -28,3 +28,5 @@ Route::add(['GET', 'POST'], '/deluser', [Controller\Users::class, 'deluser'])
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/upduser', [Controller\Users::class, 'upduser'])
     ->middleware('admin');
+Route::add(['GET', 'POST'], '/updemp', [Controller\Employers::class, 'updemp'])
+    ->middleware('admin');

@@ -62,7 +62,7 @@ use Model\User;
                 <td><?= $job_titles[$key]->job_title ?></td>
                 <td><?= $subdivisions[$key]->subdivision ?></td>
                 <?php if ((new User)->is_admin()){ ?>
-                    <td class="buttonADD"><a class="buttonUPD" href=""><h2>&#9998;</h2></a></td>
+                    <td class="buttonADD"><a class="buttonUPD" href="<?= app()->route->getUrl('/updemp?id='.$employer->id); ?>"><h2>&#9998;</h2></a></td>
                 <?php }?>
                 <td><a class="buttonDEL" href="<?= app()->route->getUrl('/delEmployer?id='.$employer->id) ?>"><h2 class="buttonDEL">&mdash;</h2></a></td>
             </tr>

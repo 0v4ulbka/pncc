@@ -76,8 +76,10 @@ class Employers
     }
     public function updemp(Request $request): string
     {
+        $subdivisions=SubdivisionsBD::all();
+        $job_titles=Job_titleBD::all();
         $employer = Employees::where('id', $request->id)->first();
-        if($request->method === 'POST' && User::where('id', $request->id)->update(['surname' => $request->surname,
+        if($request->method === 'POST' && Employees::where('id', $request->id)->update(['surname' => $request->surname,
                 'name' => $request->name,
                 'patronymic' => $request->patronymic,
                 'gender' => $request->gender,
@@ -85,8 +87,11 @@ class Employers
                 'address' => $request->address,
                 'job_title' => $request->job_title,
                 'subdivision' => $request->subdivision])){
+
             app()->route->redirect('/employers');
         }
-        return new View('site.updemp', ['user'=>$employer]);
+        return new View('site.updemp', ['employer'=>$employer,
+            'job_titles' => $job_titles,
+            'subdivisions' => $subdivisions]);
     }
 }
