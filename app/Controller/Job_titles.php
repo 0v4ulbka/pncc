@@ -2,7 +2,6 @@
 
 namespace Controller;
 
-use Model\Employees;
 use Model\Job_titleBD;
 use Src\Request;
 use Src\View;

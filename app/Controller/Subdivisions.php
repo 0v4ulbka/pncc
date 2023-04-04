@@ -22,7 +22,6 @@ class Subdivisions
     public function addsub(Request $request): string
     {
         $type_subdivisions = Type_subdivisionsBD::all();
-        //var_dump($request->all());die();
         if ($request->method === 'POST' ) {
             $subdivisions = new SubdivisionsBD();
             $subdivisions->subdivision = $request->subdivision;
@@ -33,4 +32,12 @@ class Subdivisions
         return new View('site.addsub', ['type_subdivisions'=>$type_subdivisions]);
     }
 
+    public function delsub(Request $request): string
+    {
+
+        if($request->method === 'POST' && SubdivisionsBD::where('id', $request->id)->delete()){
+            app()->route->redirect('/subdivisions');
+        }
+        return new View('site.delsub');
+    }
 }

@@ -10,7 +10,7 @@
             <tr>
                 <td><?= $subdivision->subdivision ?></td>
                 <td><?= $types_subdivisions[$key]->type_subdivision ?></td>
-                <td>-</td>
+                <th><a class="buttonDEL" href="<?= app()->route->getUrl('/delsub?id=').$subdivision->id ?>">&mdash;</a></th>
             </tr>
             <?php }?>
         </table>
