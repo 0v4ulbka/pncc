@@ -2,8 +2,8 @@
 
 namespace Controller;
 
+use Model\Employees;
 use Model\Job_titleBD;
-use Model\User;
 use Src\Request;
 use Src\View;
 
@@ -21,6 +21,15 @@ class Job_titles
             app()->route->redirect('/job_titles');
         }
         return new View('site.addjob');
+    }
+
+    public function deljob(Request $request): string
+    {
+
+        if($request->method === 'POST' && Job_titleBD::where('id', $request->id)->delete()){
+            app()->route->redirect('/job_titles');
+        }
+        return new View('site.deljob');
     }
 
 }

@@ -20,3 +20,4 @@ Route::add(['GET', 'POST'], '/addjob', [Controller\Job_titles::class, 'addjob'])
 Route::add(['GET', 'POST'], '/addsub', [Controller\Subdivisions::class, 'addsub'])
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/delEmployer', [Controller\Employers::class, 'deleteEmployer']);
+Route::add(['GET', 'POST'], '/deljob', [Controller\Job_titles::class, 'deljob']);

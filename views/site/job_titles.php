@@ -7,7 +7,7 @@
     <?php foreach ($job_titles as $job_title){ ?>
         <tr>
             <td><?= $job_title->job_title?></td>
-            <td>-</td>
+            <th><a class="buttonDEL" href="<?= app()->route->getUrl('/deljob?id=').$job_title->id ?>">-</a></th>
         </tr>
     <?php }?>
 </table>
