@@ -24,3 +24,5 @@ Route::add(['GET', 'POST'], '/deljob', [Controller\Job_titles::class, 'deljob'])
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/delsub', [Controller\Subdivisions::class, 'delsub'])
     ->middleware('admin');
+Route::add(['GET', 'POST'], '/deluser', [Controller\Users::class, 'deluser'])
+    ->middleware('admin');

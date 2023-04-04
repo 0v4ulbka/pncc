@@ -24,7 +24,6 @@ class Job_titles
 
     public function deljob(Request $request): string
     {
-
         if($request->method === 'POST' && Job_titleBD::where('id', $request->id)->delete()){
             app()->route->redirect('/job_titles');
         }
