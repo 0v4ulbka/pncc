@@ -7,7 +7,6 @@ use Model\User;
     <h3><?= $message ?? ''; ?></h3>
     <div class="opportunities">
         <ul>
-
             <li>Вы можете добавить нового работника в базу</li>
             <li>Вы можете удалить сотрудника из базы</li>
             <?php if ((new User)->is_admin()):?>

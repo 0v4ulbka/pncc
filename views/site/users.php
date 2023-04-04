@@ -16,8 +16,8 @@
             <td><?= $user->job_title?></td>
             <td><?= $user->email?></td>
             <td><?= $user->password?></td>
-            <td class="buttonADD"><a class="buttonUPD" href="<?= app()->route->getUrl(''); ?>"><h2>&#9998;</h2></a></td>
-            <td><a class="buttonDEL" href="<?= app()->route->getUrl('/deluser?id='.$user->id); ?>"><h2 class="buttonDEL">&mdash;</h2>   </a></td>
+            <td class="buttonADD"><a class="buttonUPD" href="<?= app()->route->getUrl('/upduser?id='.$user->id); ?>"><h2>&#9998;</h2></a></td>
+            <td><a class="buttonDEL" href="<?= app()->route->getUrl('/deluser?id='.$user->id); ?>"><h2 class="buttonDEL">&mdash;</h2></a></td>
         </tr>
         <?php }?>
     </table>

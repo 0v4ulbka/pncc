@@ -29,6 +29,7 @@ header{
     font-size: 14pt;
 }
 .button{
+    border: none;
     padding: 12px 30px;
     font-size: 14px;
     border-radius: 11px;
