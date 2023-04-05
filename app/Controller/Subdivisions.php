@@ -1,9 +1,8 @@
 <?php
 namespace Controller;
 
-use Model\Job_titleBD;
 use Model\SubdivisionsBD;
-use Model\Type_subdivisionsBD;
+use Model\TypeSubdivisionsBD;
 use Src\Request;
 use Src\View;
 
@@ -14,14 +13,14 @@ class Subdivisions
         $types_subdivisions = [];
         $subdivisions = SubdivisionsBD::all();
         foreach ($subdivisions as $subdivision){
-            $types_subdivisions[] = Type_subdivisionsBD::where('id', $subdivision->type_subdivision)->first();
+            $types_subdivisions[] = TypeSubdivisionsBD::where('id', $subdivision->type_subdivision)->first();
         }
         return (new View()) -> render('site.subdivisions', ['subdivisions'=>$subdivisions, 'types_subdivisions'=>$types_subdivisions]);
     }
 
     public function addsub(Request $request): string
     {
-        $type_subdivisions = Type_subdivisionsBD::all();
+        $type_subdivisions = TypeSubdivisionsBD::all();
         if ($request->method === 'POST' ) {
             $subdivisions = new SubdivisionsBD();
             $subdivisions->subdivision = $request->subdivision;

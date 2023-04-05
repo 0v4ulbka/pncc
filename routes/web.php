@@ -13,14 +13,14 @@ Route::add(['GET', 'POST'], '/users', [Controller\Users::class, 'users'])
 Route::add(['GET', 'POST'], '/addEmployer', [Controller\Employers::class, 'addEmployer']);
 Route::add(['GET', 'POST'], '/subdivisions', [Controller\Subdivisions::class, 'subdivisions'])
     ->middleware('admin');
-Route::add(['GET', 'POST'], '/job_titles', [Controller\Job_titles::class, 'job_titles'])
+Route::add(['GET', 'POST'], '/job_titles', [Controller\JobTitles::class, 'job_titles'])
     ->middleware('admin');
-Route::add(['GET', 'POST'], '/addjob', [Controller\Job_titles::class, 'addjob'])
+Route::add(['GET', 'POST'], '/addjob', [Controller\JobTitles::class, 'addjob'])
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/addsub', [Controller\Subdivisions::class, 'addsub'])
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/delEmployer', [Controller\Employers::class, 'deleteEmployer']);
-Route::add(['GET', 'POST'], '/deljob', [Controller\Job_titles::class, 'deljob'])
+Route::add(['GET', 'POST'], '/deljob', [Controller\JobTitles::class, 'deljob'])
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/delsub', [Controller\Subdivisions::class, 'delsub'])
     ->middleware('admin');
