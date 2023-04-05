@@ -20,5 +20,8 @@ class Employees extends Model
         'job_title',
         'subdivision',
     ];
-
+    public function jobTitle()
+    {
+        return $this->hasMany(JobTitleBD::class, 'foreign_key', 'owner_key');
+    }
 }

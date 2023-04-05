@@ -13,4 +13,5 @@ class JobTitleBD extends Model
     protected $fillable = [
         'job_title',
     ];
+
 }

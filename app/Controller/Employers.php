@@ -23,7 +23,6 @@ class Employers
             $birthday = Employees::where('birthday', $employer->birthday)->first();
             $ages[] = (int)$yearNow - (int)$birthday['birthday'];
         }
-
         if ($request->method === 'POST'){
             $job_titles = null;
             $subdivisions = null;

@@ -19,8 +19,8 @@
     </label>
     <p>Выберите должность пользователя</p>
     <label>
-        <input type="checkbox" name="job_title" value="admin">Админ
-        <input type="checkbox" name="job_title" value="employer">Работник
+        <input type="radio" name="job_title" value="admin">Админ
+        <input type="radio" name="job_title" value="employer">Работник
     </label>
     <p>Введите email пользователя</p>
     <label>

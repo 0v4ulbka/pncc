@@ -5,20 +5,13 @@ use Model\User;
 use Src\Request;
 use Src\View;
 use Src\Auth\Auth;
+use Src\Validator\Validator;
 
 class Site
 {
     public function hello(): string
     {
         return new View('site.possibilities');
-    }
-
-    public function signup(Request $request): string
-    {
-        if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/users');
-        }
-        return new View('site.signup');
     }
 
     public function login(Request $request): string
@@ -40,5 +33,30 @@ class Site
         Auth::logout();
         app()->route->redirect('/hello');
     }
+    public function signup(Request $request): string
+    {
+        if ($request->method === 'POST') {
+
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'email' => ['required', 'unique:users,email'],
+                'password' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if($validator->fails()){
+                return new View('site.signup',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if (User::create($request->all())) {
+                app()->route->redirect('/users');
+            }
+        }
+        return new View('site.signup');
+    }
+
 }
 
