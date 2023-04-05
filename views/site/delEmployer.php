@@ -1,5 +1,6 @@
 <h1>Вы уверены что хотите удалить работника из системы?</h1>
 <form method="post">
+    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <label>
         <button>Да</button>
     </label>

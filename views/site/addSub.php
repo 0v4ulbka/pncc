@@ -1,6 +1,7 @@
 <div>
     <h1>Добавление нового подразделения</h1>
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <p>Введите название подразделения</p>
         <label>
             <input class="field" type="text" name="subdivision">

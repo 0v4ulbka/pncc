@@ -5,6 +5,7 @@
             <th>ФИО пользователя</th>
             <th>Номер телефона</th>
             <th>Должность</th>
+            <th>Аватарка</th>
             <th>Email</th>
             <th>Пароль</th>
             <th colspan="2"><a class="buttonADD" href="<?= app()->route->getUrl('/signup'); ?>">Добавить</a></th>
@@ -14,6 +15,11 @@
             <td><?= $user->surname?> <?= $user->name?> <?= $user->patronymic?></td>
             <td><?= $user->phone?></td>
             <td><?= $user->job_title?></td>
+            <?php if ($user->filename){?>
+                <td><img src="public/img/<?= $user->filename?>" alt="ava" width="60px"></td>
+            <?php }else{?>
+            <td></td>
+            <?php }?>
             <td><?= $user->email?></td>
             <td><?= $user->password?></td>
             <td class="buttonADD"><a class="buttonUPD" href="<?= app()->route->getUrl('/upduser?id='.$user->id); ?>"><h2>&#9998;</h2></a></td>

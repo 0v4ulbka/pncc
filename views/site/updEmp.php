@@ -1,6 +1,7 @@
 <div>
     <h1>Добавление сотрудника в базу</h1>
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <p>Введите фамилию сотрудника</p>
         <label>
             <input class="field" type="text" name="surname" value="<?= $employer-> surname?>">

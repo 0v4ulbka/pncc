@@ -23,6 +23,10 @@
         <input type="radio" name="job_title" value="admin">Админ
         <input type="radio" name="job_title" value="employer">Работник
     </label>
+    <p>Выберие фото для аватарки</p>
+    <label>
+        <input class="field" type="file" name="filename">
+    </label>
     <p>Введите email пользователя</p>
     <label>
         <input class="field" type="text" name="email">

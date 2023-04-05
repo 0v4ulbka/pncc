@@ -28,6 +28,7 @@ class Users
                 'patronymic' => $request->patronymic,
                 'phone' => $request->phone,
                 'job_title' => $request->job_title,
+                'filename'=>md5($request->filename),
                 'email' => $request->email,
                 'password' => md5($request->password)])){
             app()->route->redirect('/users');
