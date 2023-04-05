@@ -1,6 +1,7 @@
 <h2>Регистрация нового пользователя</h2>
 <h3><?= $message ?? ''; ?></h3>
 <form method="post">
+    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <p>Введите фамилию пользователя</p>
     <label>
         <input class="field" type="text" name="surname">

@@ -8,6 +8,7 @@ if (!app()->auth::check()):
     <div class="formLog">
         <p class="formText">Вы посещаете страницу как гость, вам нейобходимо зайти в свою учетную запись</p>
         <form method="post">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
             <p>Ваш email</p>
             <label>
                 <input class="field" type="text" name="email">
