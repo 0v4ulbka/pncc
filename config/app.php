@@ -15,6 +15,7 @@ return [
         'cyrillic'=> \Validators\CyrillicValidator::class,
         'email'=>\Validators\EmailValidator::class,
         'latin'=>\Validators\LatinValidator::class,
+        'date'=>\Validators\BirthdayValidator::class
     ],
     'routeAppMiddleware' => [
         'csrf' => \Middlewares\CSRFMiddleware::class,

@@ -47,9 +47,9 @@ class Site
                 'password' => ['required', 'latin'],
                 'filename' => ['img']
             ], [
-                'required' => 'Поле :field пусто',
+                'required' => 'В поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально',
-                'img' => 'Расширение файла должно быть .JPG',
+                'img' => 'Расширение файла должно быть .jpg (jpeg, png)',
                 'cyrillic' => 'В поле :field присутствует латиница',
                 'email' =>'В поле :field должен быть символ \'@\'',
                 'latin'=>'В поле :field присутствует кириллица'

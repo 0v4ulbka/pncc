@@ -40,18 +40,19 @@ class Employers
                 'surname' =>['required', 'cyrillic'],
                 'name' => ['required', 'cyrillic'],
                 'patronymic'=>['cyrillic'],
-                'birthday' => ['required'],
+                'birthday' => ['required', 'date'],
                 'gender' => ['required'],
                 'job_title' => ['required'],
                 'subdivision' => ['required']
             ], [
-                'required' => 'Поле :field пусто',
-                'cyrillic' => 'В поле :field присутсует латиница'
+                'required' => 'В поле :field пусто',
+                'cyrillic' => 'В поле :field присутствует латиница',
+                'date'=>'В формате даты должны быть только числа'
             ]);
 
             if ($validator->fails()) {
                 return new View('site.addEmployer',
-                ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
+                ['message' => $validator->errors(),
                     'job_titles' => $job_titles,
                     'subdivisions' => $subdivisions]);
             }else{
@@ -80,17 +81,18 @@ class Employers
                 'surname' =>['required', 'cyrillic'],
                 'name' => ['required', 'cyrillic'],
                 'patronymic'=>['cyrillic'],
-                'birthday' => ['required'],
+                'birthday' => ['required', 'date'],
                 'gender' => ['required'],
                 'job_title' => ['required'],
                 'subdivision' => ['required']
             ], [
-                'required' => 'Поле :field пусто',
-                'cyrillic' => 'В поле :field присутсует латиница'
+                'required' => 'В поле :field пусто',
+                'cyrillic' => 'В поле :field присутствует латиница',
+                'date'=>'В формате даты должны быть только числа'
             ]);
             if( $validator->fails()) {
                 return new View('site.updEmp',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
+                    ['message' => $validator->errors(),
                         'employer'=>$employer,
                         'job_titles' => $job_titles,
                         'subdivisions' => $subdivisions]);

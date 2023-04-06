@@ -28,13 +28,13 @@ class Subdivisions
                 'subdivision' => ['required', 'cyrillic'],
                 'type_subdivision' => ['required'],
             ], [
-                'required' => 'Поле :field пусто',
+                'required' => 'В поле :field пусто',
                 'cyrillic' => 'В поле :field присутсует латиница'
             ]);
 
             if ($validator->fails()) {
                 return new View('site.addSub',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
+                    ['message' => $validator->errors(),
                     'type_subdivisions'=>$type_subdivisions]);
             } else {
                 $subdivisions = new SubdivisionsBD();

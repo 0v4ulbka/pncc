@@ -31,17 +31,20 @@ class Users
                 'patronymic' => ['required', 'cyrillic'],
                 'job_title' => ['required'],
                 'email' => ['required', 'unique:users,email', 'email'],
-                'password' => ['required'],
+                'password' => ['required', 'latin'],
+                'filename' => ['img']
             ], [
-                'required' => 'Поле :field пусто',
+                'required' => 'В поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально',
-                'cyrillic' => 'В поле :field присутсует латиница',
-                'email' =>'В поле :field должен быть символ \'@\''
+                'img' => 'Расширение файла должно быть .jpg (jpeg, png)',
+                'cyrillic' => 'В поле :field присутствует латиница',
+                'email' =>'В поле :field должен быть символ \'@\'',
+                'latin'=>'В поле :field присутствует кириллица'
             ]);
 
             if ($validator->fails()) {
                 return new View('site.updUser',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
+                    ['message' => $validator->errors(),
                         ['user' => $user]]);
             }else{
                 User::where('id', $request->id)->update(['name' => $request->name,

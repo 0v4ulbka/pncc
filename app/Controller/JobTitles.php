@@ -27,7 +27,7 @@ class JobTitles
 
             if ($validator->fails()) {
                 return new View('site.addJob',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => $validator->errors()]);
             } else {
                 JobTitleBD::create($request->all());
                 app()->route->redirect('/job_titles');
