@@ -13,6 +13,8 @@ return [
         'unique' => \Validators\UniqueValidator::class,
         'img'=> \Validators\ImgValidator::class,
         'cyrillic'=> \Validators\CyrillicValidator::class,
+        'email'=>\Validators\EmailValidator::class,
+        'latin'=>\Validators\LatinValidator::class,
     ],
     'routeAppMiddleware' => [
         'csrf' => \Middlewares\CSRFMiddleware::class,

@@ -30,12 +30,13 @@ class Users
                 'surname' => ['required', 'cyrillic'],
                 'patronymic' => ['required', 'cyrillic'],
                 'job_title' => ['required'],
-                'email' => ['required', 'unique:users,email'],
+                'email' => ['required', 'unique:users,email', 'email'],
                 'password' => ['required'],
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально',
-                'cyrillic' => 'В поле :field присутсует латиница'
+                'cyrillic' => 'В поле :field присутсует латиница',
+                'email' =>'В поле :field должен быть символ \'@\''
             ]);
 
             if ($validator->fails()) {

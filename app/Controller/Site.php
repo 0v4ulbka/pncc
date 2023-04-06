@@ -43,19 +43,21 @@ class Site
                 'surname' => ['required', 'cyrillic'],
                 'patronymic' => ['required', 'cyrillic'],
                 'job_title' => ['required'],
-                'email' => ['required', 'unique:users,email'],
-                'password' => ['required'],
+                'email' => ['required', 'unique:users,email', 'email'],
+                'password' => ['required', 'latin'],
                 'filename' => ['img']
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально',
                 'img' => 'Расширение файла должно быть .JPG',
-                'cyrillic' => 'В поле :field присутсует латиница'
+                'cyrillic' => 'В поле :field присутствует латиница',
+                'email' =>'В поле :field должен быть символ \'@\'',
+                'latin'=>'В поле :field присутствует кириллица'
             ]);
 
             if ($validator->fails()) {
                 return new View('site.signup',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => $validator->errors()]);
             } else {
                 $user = User::create($request->all());
                 $user->photo($_FILES['filename']);
