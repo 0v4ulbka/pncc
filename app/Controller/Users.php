@@ -18,7 +18,7 @@ class Users
         if($request->method === 'POST' && User::where('id', $request->id)->delete()){
             app()->route->redirect('/users');
         }
-        return new View('site.deluser');
+        return new View('site.delUser');
     }
     public function upduser(Request $request): string
     {
@@ -33,6 +33,6 @@ class Users
                 'password' => md5($request->password)])){
             app()->route->redirect('/users');
         }
-        return new View('site.upduser', ['user'=>$user]);
+        return new View('site.updUser', ['user'=>$user]);
     }
 }

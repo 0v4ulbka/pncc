@@ -115,7 +115,7 @@ li::marker{
     justify-content: space-between;
     margin: 60px 150px
 }
-span{
+.span{
     margin-bottom: 40px;
     font-size: 13pt;
 }

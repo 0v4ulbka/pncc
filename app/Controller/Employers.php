@@ -11,46 +11,21 @@ class Employers
 {
     public function employers(Request $request): string
     {
-        $job_titles = [];
-        $subdivisions = [];
-        $yearNow = date('Y-m-d');
         $jobs = JobTitleBD::all();
         $subs = SubdivisionsBD::all();
         $employers = Employees::all();
-        foreach ($employers as $employer){
-            $job_titles[] = JobTitleBD::where('id', $employer->job_title)->first();
-            $subdivisions[] = SubdivisionsBD::where('id', $employer->subdivision)->first();
-            $birthday = Employees::where('birthday', $employer->birthday)->first();
-            $ages[] = (int)$yearNow - (int)$birthday['birthday'];
-        }
         if ($request->method === 'POST'){
-            $job_titles = null;
-            $subdivisions = null;
-            $ages = null;
             $ftitle = JobTitleBD::where('id', $request->job_title)->first();
             $fsub = SubdivisionsBD::where('id', $request->subdivision)->first();
             $employers = Employees::where('job_title', $ftitle->id)->where('subdivision', $fsub->id)->get();
-            foreach ($employers as $employer){
-                $job_titles[] = JobTitleBD::where('id', $employer->job_title)->first();
-                $subdivisions[] = SubdivisionsBD::where('id', $employer->subdivision)->first();
-                $birthday = Employees::where('birthday', $employer->birthday)->first();
-                $ages[] = (int)$yearNow - (int)$birthday['birthday'];
-            }
             return (new View()) -> render('site.employers', [
                 'employers'=>$employers,
-                'job_titles'=>$job_titles,
-                'subdivisions'=>$subdivisions,
-                'ages'=>$ages,
                 'jobs'=>$jobs,
                 'subs'=>$subs]);
         }
-        /*$employer_age = Employees::where('id', $ages[$key]['id']);*/
 
         return (new View()) -> render('site.employers', [
             'employers'=>$employers,
-            'job_titles'=>$job_titles,
-            'subdivisions'=>$subdivisions,
-            'ages'=>$ages,
             'jobs'=>$jobs,
             'subs'=>$subs]);
     }
