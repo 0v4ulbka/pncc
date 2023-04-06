@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\JobTitleBD;
 use Src\Request;
+use Src\Validator\Validator;
 use Src\View;
 
 class JobTitles
@@ -16,8 +17,21 @@ class JobTitles
 
     public function addjob(Request $request): string
     {
-        if ($request->method === 'POST' && JobTitleBD::create($request->all())) {
-            app()->route->redirect('/job_titles');
+        if ($request->method === 'POST'){
+            $validator = new Validator($request->all(), [
+                'job_title' => ['required', 'cyrillic'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'cyrillic' => 'В поле :field присутсует латиница'
+            ]);
+
+            if ($validator->fails()) {
+                return new View('site.addJob',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            } else {
+                JobTitleBD::create($request->all());
+                app()->route->redirect('/job_titles');
+            }
         }
         return new View('site.addJob');
     }

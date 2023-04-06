@@ -47,7 +47,7 @@ use Model\User;
             <th>Подразделение</th>
             <th colspan="2"><a class="buttonADD" href="<?= app()->route->getUrl('/addEmployer') ?>">Добавить</a></th>
         </tr>
-        <?php foreach ($employers as $key=>$employer){ ?>
+        <?php foreach ($employers as $employer){ ?>
             <tr>
                 <td><?= $employer->surname ?> <?= $employer->name ?> <?= $employer->patronymic ?></td>
                 <td><?= $employer->gender?></td>

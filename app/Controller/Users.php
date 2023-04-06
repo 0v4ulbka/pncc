@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\User;
 use Src\Request;
+use Src\Validator\Validator;
 use Src\View;
 
 class Users
@@ -24,14 +25,33 @@ class Users
     {
         $user = User::where('id', $request->id)->first();
         if($request->method === 'POST'){
-            $updUser = User::where('id', $request->id)->update(['name' => $request->name,
-                'surname' => $request->surname,
-                'patronymic' => $request->patronymic,
-                'phone' => $request->phone,
-                'job_title' => $request->job_title,
-                'email' => $request->email,
-                'password' => md5($request->password)]);
-            app()->route->redirect('/users');
+            $validator = new Validator($request->all(), [
+                'name' => ['required', 'cyrillic'],
+                'surname' => ['required', 'cyrillic'],
+                'patronymic' => ['required', 'cyrillic'],
+                'job_title' => ['required'],
+                'email' => ['required', 'unique:users,email'],
+                'password' => ['required'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально',
+                'cyrillic' => 'В поле :field присутсует латиница'
+            ]);
+
+            if ($validator->fails()) {
+                return new View('site.updUser',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
+                        ['user' => $user]]);
+            }else{
+                User::where('id', $request->id)->update(['name' => $request->name,
+                    'surname' => $request->surname,
+                    'patronymic' => $request->patronymic,
+                    'phone' => $request->phone,
+                    'job_title' => $request->job_title,
+                    'email' => $request->email,
+                    'password' => md5($request->password)]);
+                app()->route->redirect('/users');
+            }
         }
         return new View('site.updUser', ['user'=>$user]);
     }

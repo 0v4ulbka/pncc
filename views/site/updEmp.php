@@ -1,5 +1,6 @@
 <div>
     <h1>Добавление сотрудника в базу</h1>
+    <h3><?= $message ?? ''; ?></h3>
     <form method="post">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <p>Введите фамилию сотрудника</p>
@@ -39,7 +40,7 @@
         <label>
             <select name="subdivision">
                 <?php foreach ($subdivisions as $subdivision){ ?>
-                <option value="<?= $subdivision->id ?>"><?= $subdivision->subdivision ?></option>
+                <option value="<?= $subdivision->id?>"><?= $subdivision->subdivision ?></option>
                 <?php }?>
             </select>
         </label>

@@ -1,5 +1,6 @@
 <div>
     <h1>Добавление сотрудника в базу</h1>
+    <h3><?= $message ?? ''; ?></h3>
     <form method="post">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <p>Введите фамилию сотрудника</p>
@@ -20,8 +21,8 @@
         </label>
         <p>Выберите пол сотрудника</p>
         <label>
-            <input type="checkbox" name="gender" value="мужской">мужской
-            <input type="checkbox" name="gender" value="женский">женский
+            <input type="radio" name="gender" value="мужской">мужской
+            <input type="radio" name="gender" value="женский">женский
         </label>
         <p>Выберите дату рождения сотрудника</p>
         <label>
@@ -43,7 +44,7 @@
                 <?php }?>
             </select>
         </label>
-        <a class="button" href="<?= app()->route->getUrl('/employers') ?>">Отмена</a>
         <input class="button" type="submit" value="Добвить" name="add">
+        <a class="button" href="<?= app()->route->getUrl('/employers') ?>">Назад</a>
     </form>
 </div>

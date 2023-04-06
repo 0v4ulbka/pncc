@@ -14,4 +14,10 @@ class SubdivisionsBD extends Model
         'subdivision',
         'type',
     ];
+
+    public function getEmployers()
+    {
+        return $this->belongsTo(Employees::class, 'id', 'subdivision');
+
+    }
 }

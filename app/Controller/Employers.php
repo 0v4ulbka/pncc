@@ -5,6 +5,7 @@ use Model\SubdivisionsBD;
 use Model\JobTitleBD;
 use Model\Employees;
 use Src\Request;
+use Src\Validator\Validator;
 use Src\View;
 
 class Employers
@@ -33,8 +34,30 @@ class Employers
     {
         $subdivisions=SubdivisionsBD::all();
         $job_titles=JobTitleBD::all();
-        if ($request->method === 'POST' && Employees::create($request->all())) {
-            app()->route->redirect('/employers');
+        if ($request->method === 'POST') {
+
+            $validator = new Validator($request->all(), [
+                'surname' =>['required', 'cyrillic'],
+                'name' => ['required', 'cyrillic'],
+                'patronymic'=>['cyrillic'],
+                'birthday' => ['required'],
+                'gender' => ['required'],
+                'job_title' => ['required'],
+                'subdivision' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+                'cyrillic' => 'В поле :field присутсует латиница'
+            ]);
+
+            if ($validator->fails()) {
+                return new View('site.addEmployer',
+                ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
+                    'job_titles' => $job_titles,
+                    'subdivisions' => $subdivisions]);
+            }else{
+                Employees::create($request->all());
+                app()->route->redirect('/employers');
+            }
         }
         return new View('site.addEmployer',['job_titles' => $job_titles,
             'subdivisions' => $subdivisions ]);
@@ -52,18 +75,38 @@ class Employers
         $subdivisions=SubdivisionsBD::all();
         $job_titles=JobTitleBD::all();
         $employer = Employees::where('id', $request->id)->first();
-        if($request->method === 'POST' && Employees::where('id', $request->id)->update(['surname' => $request->surname,
+        if($request->method === 'POST'){
+            $validator = new Validator($request->all(), [
+                'surname' =>['required', 'cyrillic'],
+                'name' => ['required', 'cyrillic'],
+                'patronymic'=>['cyrillic'],
+                'birthday' => ['required'],
+                'gender' => ['required'],
+                'job_title' => ['required'],
+                'subdivision' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+                'cyrillic' => 'В поле :field присутсует латиница'
+            ]);
+            if( $validator->fails()) {
+                return new View('site.updEmp',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
+                        'employer'=>$employer,
+                        'job_titles' => $job_titles,
+                        'subdivisions' => $subdivisions]);
+        }else{
+                Employees::where('id', $request->id)->update(['surname' => $request->surname,
                 'name' => $request->name,
                 'patronymic' => $request->patronymic,
                 'gender' => $request->gender,
                 'birthday' => $request->birthday,
                 'address' => $request->address,
                 'job_title' => $request->job_title,
-                'subdivision' => $request->subdivision])){
-
-            app()->route->redirect('/employers');
+                'subdivision' => $request->subdivision]);
+                app()->route->redirect('/employers');
+            }
         }
-        return new View('site.updemp', ['employer'=>$employer,
+        return new View('site.updEmp', ['employer'=>$employer,
             'job_titles' => $job_titles,
             'subdivisions' => $subdivisions]);
     }

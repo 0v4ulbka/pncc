@@ -16,7 +16,7 @@
             <td><?= $user->phone?></td>
             <td><?= $user->job_title?></td>
             <?php if ($user->filename){?>
-                <td><img src="public/img/<?= $user->filename?>" alt="ava" width="60px"></td>
+                <td><img src="public/img/<?= $user->filename?>" alt="ava" width="100px"></td>
             <?php }else{?>
             <td></td>
             <?php }?>
