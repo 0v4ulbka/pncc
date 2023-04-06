@@ -11,6 +11,7 @@ class Site
 {
     public function hello(): string
     {
+
         return new View('site.possibilities');
     }
 

@@ -1,6 +1,6 @@
 <h2>Обновление пользователя</h2>
 <h3><?= $message ?? ''; ?></h3>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <p>Введите фамилию пользователя</p>
     <label>
@@ -22,10 +22,6 @@
     <label>
         <input type="radio" name="job_title" value="admin">Админ
         <input type="radio" name="job_title" value="employer">Работник
-    </label>
-    <p>Выберие фото для аватарки</p>
-    <label>
-        <input class="field" type="file" name="filename" value="<?= $user->filename?>">
     </label>
     <p>Введите email пользователя</p>
     <label>
