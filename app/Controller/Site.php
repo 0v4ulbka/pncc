@@ -62,7 +62,7 @@ class Site
                 $user = User::create($request->all());
                 $user->photo($_FILES['filename'], __DIR__ . '/../../public/img/');
                 $user->save();
-                return new View('site.signup', ['message' => 'Пользователь успешно добавлен, фото тоже']);
+                app()->route->getUrl('/users');
             }
         }
         return new View('site.signup');
